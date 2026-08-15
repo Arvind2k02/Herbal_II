@@ -1,0 +1,16 @@
+{
+  "name": "herbal-ii",
+  "version": "1.0.0",
+  "description": "Herbal & Medicinal Plants website",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": [],
+  "author": "Arvind Kumar Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  }
+}
