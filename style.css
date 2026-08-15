@@ -46,6 +46,7 @@ header {
   text-decoration: none;
   font-size: 16px;
   transition: opacity 0.2s;
+  padding: 8px 12px;
 }
 .site-nav a:hover {
   opacity: 0.85;
@@ -75,6 +76,7 @@ section.container {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 .home-parent {
   width: 90%;
@@ -96,11 +98,12 @@ section.container {
   gap: 20px;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .main_content .left {
-  width: 100%;
+  flex: 1;
+  min-width: 280px;
   padding: 20px;
-  min-width: 300px;
 }
 .left h3 {
   font-weight: 600;
@@ -128,7 +131,7 @@ section.container {
   margin-bottom: 15px;
 }
 .left button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   border: none;
   margin-top: 20px;
@@ -138,12 +141,14 @@ section.container {
   font-size: 16px;
   cursor: pointer;
   font-weight: 600;
+  min-height: 44px;
 }
 .left button:hover {
   background-color: rgb(238, 73, 235);
 }
 .main_content .right {
-  width: 100%;
+  flex: 1;
+  min-width: 280px;
   padding: 20px;
   text-align: center;
 }
@@ -179,7 +184,7 @@ section.container {
 }
 .about-content {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
 }
 .about-content h2 {
   font-size: 24px;
@@ -224,6 +229,7 @@ section.container {
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .why-card {
   background: #fff;
@@ -246,6 +252,7 @@ section.container {
 .search-container {
   text-align: center;
   margin: 1.2rem auto 1.6rem;
+  padding: 0 20px;
 }
 .search-container input {
   width: min(800px, 100%);
@@ -253,13 +260,14 @@ section.container {
   border: 2px solid #2e7d32;
   border-radius: 10px;
   font-size: 14px;
+  min-height: 44px;
 }
 
 .plant-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
-  padding: 0 0 1rem;
+  padding: 0 20px 1rem;
   margin: 0 auto;
   max-width: 1200px;
 }
@@ -321,6 +329,7 @@ section.container {
   cursor: pointer;
   transition: background 0.3s ease;
   font-weight: 600;
+  min-height: 44px;
 }
 .load-more-container button:hover {
   background: #1b5e20;
@@ -376,6 +385,11 @@ section.container {
   color: #555;
   cursor: pointer;
   font-weight: bold;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes fadeInUp {
@@ -411,6 +425,7 @@ section.container {
   max-width: 1200px;
   margin: 0 auto 30px auto;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .vision img {
   display: block;
@@ -460,6 +475,7 @@ section.container {
   font-weight: 700;
   cursor: pointer;
   transition: background 0.3s ease;
+  min-height: 44px;
 }
 .cta button:hover {
   background: #f1f1f1;
@@ -474,7 +490,30 @@ footer {
   font-size: 14px;
 }
 
-/* ========== MOBILE RESPONSIVE MEDIA QUERIES ========== */
+/* ========== RESPONSIVE MEDIA QUERIES ========== */
+
+/* Large Laptops (1200px and above) */
+@media (min-width: 1200px) {
+  .site-nav {
+    padding: 16px 30px;
+  }
+  .plant-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .why-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablets and small laptops (769px to 1199px) */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .plant-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .why-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 /* Tablets (768px and below) */
 @media (max-width: 768px) {
@@ -490,11 +529,12 @@ footer {
     margin-bottom: 10px;
   }
   .site-nav ul {
-    gap: 15px;
+    gap: 12px;
     justify-content: center;
   }
   .site-nav a {
-    font-size: 14px;
+    font-size: 13px;
+    padding: 6px 10px;
   }
 
   .section-title {
@@ -505,7 +545,14 @@ footer {
     width: 95%;
     padding: 15px;
   }
+  .main_content {
+    flex-direction: column;
+    gap: 15px;
+  }
   .main_content .left {
+    padding: 15px;
+  }
+  .main_content .right {
     padding: 15px;
   }
   .left h1 {
@@ -519,12 +566,13 @@ footer {
     font-size: 13px;
   }
   .left button {
-    padding: 8px 18px;
+    padding: 10px 20px;
     font-size: 14px;
   }
 
   .about-section {
     gap: 20px;
+    flex-direction: column;
   }
   .about-section img {
     max-width: 100%;
@@ -553,6 +601,7 @@ footer {
   .plant-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
+    padding: 0 15px 1rem;
   }
   .plant-card img {
     height: 130px;
@@ -567,11 +616,20 @@ footer {
     font-size: 12px;
   }
 
+  .search-container {
+    padding: 0 15px;
+  }
+  .search-container input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
   .vision h1 {
     font-size: 24px;
   }
   .vision {
     gap: 20px;
+    flex-direction: column;
   }
   .vision img {
     max-width: 100%;
@@ -596,6 +654,36 @@ footer {
   }
 }
 
+/* Small phones (481px to 767px) */
+@media (max-width: 767px) and (min-width: 481px) {
+  .site-nav h1 {
+    font-size: 16px;
+  }
+  .site-nav ul {
+    gap: 10px;
+  }
+  .site-nav a {
+    font-size: 12px;
+  }
+
+  .left h1 {
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+  .plant-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .plant-card img {
+    height: 120px;
+  }
+
+  .why-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Small phones (480px and below) */
 @media (max-width: 480px) {
   .site-nav {
@@ -608,12 +696,13 @@ footer {
     margin-bottom: 8px;
   }
   .site-nav ul {
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     justify-content: center;
   }
   .site-nav a {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 5px 8px;
   }
 
   .section-title {
@@ -623,6 +712,9 @@ footer {
 
   .home-section {
     min-height: 90vh;
+  }
+  .home-container {
+    padding: 15px;
   }
   .home-parent {
     width: 98%;
@@ -655,11 +747,13 @@ footer {
   }
   .left p {
     font-size: 12px;
+    text-align: left;
   }
   .left button {
-    padding: 8px 16px;
+    padding: 10px 16px;
     font-size: 13px;
     margin-top: 10px;
+    width: 100%;
   }
 
   #about {
@@ -676,13 +770,14 @@ footer {
   }
   .about-content h2 {
     font-size: 18px;
-    width: 90%;
+    width: 100%;
   }
   .about-content h3 {
     font-size: 15px;
   }
   .about-content p {
     font-size: 13px;
+    text-align: left;
   }
 
   .why-section h1 {
@@ -692,6 +787,7 @@ footer {
   .why-list {
     grid-template-columns: 1fr;
     gap: 15px;
+    padding: 0;
   }
   .why-card {
     font-size: 13px;
@@ -701,13 +797,19 @@ footer {
   #plants-category {
     padding: 40px 15px;
   }
+  .search-container {
+    padding: 0;
+    margin: 1rem auto 1.2rem;
+  }
   .search-container input {
     padding: 10px 12px;
     font-size: 13px;
+    width: 100%;
   }
   .plant-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 0.8rem;
+    padding: 0 15px 1rem;
   }
   .plant-card img {
     height: 120px;
@@ -750,6 +852,8 @@ footer {
     font-size: 24px;
     top: 10px;
     right: 15px;
+    min-width: auto;
+    min-height: auto;
   }
 
   #content {
@@ -771,6 +875,7 @@ footer {
   .vision p {
     font-size: 13px;
     min-width: auto;
+    text-align: left;
   }
 
   .cta {
@@ -788,6 +893,7 @@ footer {
   .cta button {
     padding: 10px 20px;
     font-size: 13px;
+    width: 100%;
   }
 
   footer {
@@ -797,15 +903,16 @@ footer {
 }
 
 /* Ultra small phones (below 360px) */
-@media (max-width: 360px) {
+@media (max-width: 359px) {
   .site-nav h1 {
     font-size: 14px;
   }
   .site-nav ul {
-    gap: 8px;
+    gap: 6px;
   }
   .site-nav a {
-    font-size: 11px;
+    font-size: 10px;
+    padding: 4px 6px;
   }
 
   .left h1 {
@@ -817,6 +924,16 @@ footer {
   }
 
   .plant-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .cta button {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
